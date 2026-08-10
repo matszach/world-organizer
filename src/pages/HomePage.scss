@@ -1,0 +1,43 @@
+@use '../styles/theme' as t;
+@use '../styles/common' as c;
+
+.home-page {
+  min-height: 100vh;
+  @include c.page-centered-layout;
+  gap: 0.75rem;
+
+  &__title {
+    margin: 0;
+    font-size: 2rem;
+    text-transform: lowercase;
+  }
+
+  &__subtitle {
+    @include c.muted-subtitle;
+  }
+
+  &__apps {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  &__app-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.2rem;
+    border-radius: t.$radius-md;
+    border: 1px solid t.$color-surface-1;
+    background: t.$color-surface-0;
+    color: t.$color-text;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      background: t.$color-surface-1;
+    }
+  }
+}

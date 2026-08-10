@@ -1,0 +1,13 @@
+@use './theme' as t;
+
+@mixin page-centered-layout {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+@mixin muted-subtitle {
+  margin: 0;
+  color: t.$color-subtext;
+}

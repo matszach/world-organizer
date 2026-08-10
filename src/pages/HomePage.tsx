@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import './HomePage.scss'
 
 function HomePage() {
   return (
@@ -8,6 +9,9 @@ function HomePage() {
       <div className="home-page__apps">
         <Link className="home-page__app-link" to="/hex-map-maker">
           Hex Map Maker
+        </Link>
+        <Link className="home-page__app-link" to="/notes-vault">
+          Notes Vault
         </Link>
       </div>
     </main>
