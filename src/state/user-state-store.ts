@@ -7,7 +7,7 @@ const createInitialUserState = (): UserState => ({
 })
 
 interface UserStateStore extends UserState {
-  reset: () => void
+  reset: () => void 
   setWorld: (world: World | null) => void
   clearWorld: () => void
 }

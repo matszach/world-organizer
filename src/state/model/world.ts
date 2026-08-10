@@ -1,7 +1,8 @@
-import NoteDirectory from "./note-directory";
+import Note from "./note"
 
 export default interface World {
   id: string
   name: string
-  notes: NoteDirectory
+  notes: Note[]
+  noteCategories: string[]
 }

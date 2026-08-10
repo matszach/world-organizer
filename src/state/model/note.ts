@@ -1,8 +1,6 @@
-import NoteTag from "./note-tag"
-
 export default interface Note {
   id: string
   title: string
-  tags: NoteTag[]
+  category: string | null
   content: string
 }
