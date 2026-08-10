@@ -1,0 +1,15 @@
+@use './styles/theme' as t;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: t.$font-family;
+  -webkit-font-smoothing: antialiased;
+  background: t.$color-base;
+  color: t.$color-text;
+}

@@ -1,0 +1,54 @@
+// ─── Colour Palette ───────────────────────────────────────────────────────────
+
+// Base
+$color-base:    #11111b;
+$color-mantle:  #181825;
+$color-crust:   #1e1e2e;
+
+// Surface
+$color-surface-0: #313244;
+$color-surface-1: #45475a;
+$color-surface-2: #585b70;
+
+// Text
+$color-text:        #cdd6f4;
+$color-subtext:     #a6adc8;
+$color-muted:       #6c7086;
+
+// Accent
+$color-accent:      #89b4fa;
+$color-accent-dark: #74c7ec;
+
+// Semantic
+$color-danger:  #f38ba8;
+$color-warning: #fab387;
+$color-success: #a6e3a1;
+
+// ─── Borders ──────────────────────────────────────────────────────────────────
+
+$border-color: $color-surface-0;
+$border:       1px solid $border-color;
+
+// ─── Typography ───────────────────────────────────────────────────────────────
+
+$font-family: system-ui, -apple-system, sans-serif;
+$font-size-sm: 0.8rem;
+$font-size-md: 0.875rem;
+$font-size-lg: 0.95rem;
+
+// ─── Sizing ───────────────────────────────────────────────────────────────────
+
+$navbar-height:    48px;
+$tool-panel-width: 200px;
+
+// ─── Spacing ──────────────────────────────────────────────────────────────────
+
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+
+// ─── Border Radius ────────────────────────────────────────────────────────────
+
+$radius-sm: 4px;
+$radius-md: 6px;

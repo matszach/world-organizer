@@ -1,0 +1,15 @@
+@use '../../styles/theme' as t;
+
+.tool-panel {
+  width: t.$tool-panel-width;
+  flex-shrink: 0;
+  background: t.$color-mantle;
+  border-right: t.$border;
+  padding: t.$spacing-md;
+
+  &__placeholder {
+    font-size: t.$font-size-md;
+    color: t.$color-muted;
+    margin: 0;
+  }
+}
