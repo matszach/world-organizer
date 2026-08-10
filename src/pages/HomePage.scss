@@ -16,6 +16,46 @@
     @include c.muted-subtitle;
   }
 
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: min(100%, 24rem);
+  }
+
+  &__label {
+    font-weight: 600;
+  }
+
+  &__form-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__input {
+    flex: 1;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid t.$color-surface-1;
+    border-radius: t.$radius-md;
+    background: t.$color-surface-0;
+    color: t.$color-text;
+  }
+
+  &__submit {
+    padding: 0.7rem 1rem;
+    border: 1px solid t.$color-surface-1;
+    border-radius: t.$radius-md;
+    background: t.$color-surface-1;
+    color: t.$color-text;
+    cursor: pointer;
+    font-weight: 600;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
   &__apps {
     margin-top: 1rem;
     display: flex;
@@ -35,9 +75,19 @@
     color: t.$color-text;
     text-decoration: none;
     font-weight: 600;
+    font-family: inherit;
 
     &:hover {
       background: t.$color-surface-1;
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+
+      &:hover {
+        background: t.$color-surface-0;
+      }
     }
   }
 }
