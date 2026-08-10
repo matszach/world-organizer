@@ -1,12 +1,12 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
-import './Workspace.scss'
+import './HexWorkspace.scss'
 
 interface PanState {
   x: number
   y: number
 }
 
-function Workspace() {
+function HexWorkspace() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [pan, setPan] = useState<PanState>({ x: 0, y: 0 })
   const dragging = useRef(false)
@@ -42,9 +42,9 @@ function Workspace() {
   }, [])
 
   return (
-    <div className="workspace" ref={containerRef}>
+    <div className="hex-workspace" ref={containerRef}>
       <svg
-        className="workspace__svg"
+        className="hex-workspace__svg"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={stopDrag}
@@ -52,7 +52,6 @@ function Workspace() {
         onContextMenu={handleContextMenu}
       >
         <g transform={`translate(${pan.x}, ${pan.y})`}>
-          {/* Example content centred at origin */}
           <rect
             x="-40"
             y="-40"
@@ -66,7 +65,7 @@ function Workspace() {
             x="0"
             y="72"
             textAnchor="middle"
-            className="workspace__label"
+            className="hex-workspace__label"
           >
             Example Workspace
           </text>
@@ -76,4 +75,4 @@ function Workspace() {
   )
 }
 
-export default Workspace
+export default HexWorkspace

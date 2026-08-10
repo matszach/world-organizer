@@ -1,14 +1,14 @@
 import Navbar from '../components/Navbar/Navbar'
-import ToolPanel from '../components/ToolPanel/ToolPanel'
-import Workspace from '../components/Workspace/Workspace'
+import HexToolPanel from '../components/HexToolPanel/HexToolPanel'
+import HexWorkspace from '../components/HexWorkspace/HexWorkspace'
 
 function HexMapMakerPage() {
   return (
     <div className="app">
       <Navbar appTitle="Hex Map Maker" showHomeButton />
       <div className="app__body">
-        <ToolPanel />
-        <Workspace />
+        <HexToolPanel />
+        <HexWorkspace />
       </div>
     </div>
   )
