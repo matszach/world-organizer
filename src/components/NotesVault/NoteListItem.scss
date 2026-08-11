@@ -14,6 +14,8 @@
   text-align: left;
   padding: 0.45rem 0.55rem;
   cursor: pointer;
+  min-width: 0;
+  width: 100%;
 
   &:hover {
     background: t.$color-surface-1;
@@ -25,6 +27,8 @@
 }
 
 .notes-vault-menu__note-title {
+  display: block;
+  width: 100%;
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;

@@ -4,4 +4,6 @@
   flex: 1;
   display: flex;
   min-height: 0;
+  height: calc(100vh - 48px);
+  overflow: hidden;
 }

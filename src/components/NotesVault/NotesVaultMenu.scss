@@ -7,11 +7,40 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+
+  scrollbar-color: t.$color-surface-2 transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: t.$color-surface-2;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: t.$color-surface-1;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
 
   &__section {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    min-height: 0;
   }
 
   &__section-header {
@@ -52,16 +81,78 @@
 
   &__notes-list {
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 0.25rem;
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.45rem;
+    overflow-y: auto;
+    min-height: 0;
+    flex: 1;
+    scrollbar-color: t.$color-surface-2 transparent;
+    scrollbar-width: thin;
+    direction: rtl;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: t.$color-surface-2;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: t.$color-surface-1;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    > li {
+      direction: ltr;
+    }
   }
 
   &__tag-list {
     display: flex;
     flex-wrap: wrap;
     gap: 0.35rem;
+    overflow-y: auto;
+    max-height: 180px;
+    padding-right: 0.15rem;
+    scrollbar-color: t.$color-surface-2 transparent;
+    scrollbar-width: thin;
+    direction: rtl;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: t.$color-surface-2;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: t.$color-surface-1;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    > * {
+      direction: ltr;
+    }
   }
 }
