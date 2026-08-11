@@ -1,4 +1,5 @@
 import type Note from '../../state/model/note'
+import { APP_TEXT } from '../../content/appText'
 import './NoteListItem.scss'
 
 interface NoteListItemProps {
@@ -22,9 +23,9 @@ function NoteListItem({ note, isSelected, onSelectNote, onDeleteNote }: NoteList
         type="button"
         className="notes-vault-menu__delete-btn"
         onClick={() => onDeleteNote(note.id)}
-        aria-label={`Delete ${note.title}`}
+        aria-label={`${APP_TEXT.notesVault.delete} ${note.title}`}
       >
-        Delete
+        {APP_TEXT.notesVault.delete}
       </button>
     </li>
   )

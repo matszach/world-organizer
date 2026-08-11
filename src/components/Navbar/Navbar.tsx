@@ -1,5 +1,6 @@
 import './Navbar.scss'
 import { Link } from 'react-router-dom'
+import { APP_TEXT } from '../../content/appText'
 
 interface NavbarProps {
   appTitle: string
@@ -13,7 +14,7 @@ function Navbar({ appTitle, showHomeButton = false }: NavbarProps) {
       <div className="navbar__actions">
         {showHomeButton && (
           <Link className="navbar__btn navbar__btn--link" to="/">
-            Back to Home
+            {APP_TEXT.navbar.backToHome}
           </Link>
         )}
       </div>

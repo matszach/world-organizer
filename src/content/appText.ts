@@ -1,0 +1,42 @@
+export const APP_TEXT = {
+  app: {
+    homeTitle: 'world-organizer',
+    hexMapMakerTitle: 'hex-map-maker',
+    notesVaultTitle: 'notes-vault',
+    backToHome: 'Back to Home',
+  },
+  homePage: {
+    nameYourWorld: 'Name your world',
+    worldPlaceholder: 'My world',
+    createWorld: 'Create world',
+    welcomePrefix: 'Welcome to',
+    hexMapMakerLink: 'Hex Map Maker',
+    notesVaultLink: 'Notes Vault',
+  },
+  notesVault: {
+    filterTitle: 'Filter by tags',
+    clear: 'Clear',
+    noTagsCreated: 'No tags created yet.',
+    notesTitle: 'Notes',
+    newNote: 'New',
+    noMatches: 'No notes match the current filter.',
+    workspaceTitle: 'Workspace',
+    workspaceSubtitle: 'Edit a note and manage its tags.',
+    selectNote: 'Select a note to begin editing.',
+    titleLabel: 'Title',
+    contentLabel: 'Content',
+    tagsLabel: 'Tags',
+    addTag: 'Add tag',
+    noTagsForNote: 'This note has no tags yet.',
+    tagPlaceholder: 'e.g. npc, city, quest',
+    delete: 'Delete',
+    contentPlaceholder: 'Write details about your world here...',
+  },
+  hex: {
+    toolPanelPlaceholder: 'Tools go here',
+    exampleWorkspaceLabel: 'Example Workspace',
+  },
+  navbar: {
+    backToHome: 'Back to Home',
+  },
+} as const

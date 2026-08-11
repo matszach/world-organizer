@@ -2,6 +2,7 @@ import { useRef, useState, useCallback, useEffect } from 'react'
 import './HexWorkspace.scss'
 import { HexMouseHandler, Point } from './HexMouseHandler'
 import usePreventDefault from '../../hooks/usePreventDefault'
+import { APP_TEXT } from '../../content/appText'
 
 function HexWorkspace() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -70,7 +71,7 @@ function HexWorkspace() {
               textAnchor="middle"
               className="hex-workspace__label"
             >
-              Example Workspace
+              {APP_TEXT.hex.exampleWorkspaceLabel}
             </text>
           </g>
         </g>

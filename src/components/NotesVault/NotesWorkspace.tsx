@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { APP_TEXT } from '../../content/appText'
 import type Note from '../../state/model/note'
 import { normalizeNoteTag } from '../../state/notes-util'
 import NoteTagChip from './NoteTagChip'
@@ -48,16 +49,16 @@ function NotesWorkspace({ note, onUpdateNote }: NotesWorkspaceProps) {
   return (
     <section className="notes-workspace">
       <div className="notes-workspace__header">
-        <h3 className="notes-workspace__title">Workspace</h3>
-        <p className="notes-workspace__subtitle">Edit a note and manage its tags.</p>
+        <h3 className="notes-workspace__title">{APP_TEXT.notesVault.workspaceTitle}</h3>
+        <p className="notes-workspace__subtitle">{APP_TEXT.notesVault.workspaceSubtitle}</p>
       </div>
 
       {!note ? (
-        <div className="notes-workspace__placeholder">Select a note to begin editing.</div>
+        <div className="notes-workspace__placeholder">{APP_TEXT.notesVault.selectNote}</div>
       ) : (
         <>
           <label className="notes-workspace__field-label" htmlFor="note-title">
-            Title
+            {APP_TEXT.notesVault.titleLabel}
           </label>
           <input
             id="note-title"
@@ -68,18 +69,18 @@ function NotesWorkspace({ note, onUpdateNote }: NotesWorkspaceProps) {
           />
 
           <label className="notes-workspace__field-label" htmlFor="note-content">
-            Content
+            {APP_TEXT.notesVault.contentLabel}
           </label>
           <textarea
             id="note-content"
             className="notes-workspace__textarea"
             value={note.content}
             onChange={event => onUpdateNote({ ...note, content: event.target.value })}
-            placeholder="Write details about your world here..."
+            placeholder={APP_TEXT.notesVault.contentPlaceholder}
           />
 
           <div className="notes-workspace__tags-header">
-            <span className="notes-workspace__field-label">Tags</span>
+            <span className="notes-workspace__field-label">{APP_TEXT.notesVault.tagsLabel}</span>
           </div>
           <div className="notes-workspace__tag-input-row">
             <input
@@ -88,7 +89,7 @@ function NotesWorkspace({ note, onUpdateNote }: NotesWorkspaceProps) {
               value={tagInput}
               onChange={event => setTagInput(event.target.value)}
               onKeyDown={handleTagInputKeyDown}
-              placeholder="e.g. npc, city, quest"
+              placeholder={APP_TEXT.notesVault.tagPlaceholder}
             />
             <button
               type="button"
@@ -96,13 +97,13 @@ function NotesWorkspace({ note, onUpdateNote }: NotesWorkspaceProps) {
               onClick={handleAddTag}
               disabled={!tagInput.trim()}
             >
-              Add tag
+              {APP_TEXT.notesVault.addTag}
             </button>
           </div>
 
           {note.tags.length === 0 ? (
             <div className="notes-workspace__placeholder notes-workspace__placeholder--compact">
-              This note has no tags yet.
+              {APP_TEXT.notesVault.noTagsForNote}
             </div>
           ) : (
             <div className="notes-workspace__tag-list">

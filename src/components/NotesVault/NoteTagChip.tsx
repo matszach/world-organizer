@@ -1,4 +1,5 @@
 import './NoteTagChip.scss'
+import { APP_TEXT } from '../../content/appText'
 
 interface NoteTagChipProps {
   tag: string
@@ -11,7 +12,7 @@ function NoteTagChip({ tag, onRemove }: NoteTagChipProps) {
       type="button"
       className="note-tag-chip"
       onClick={() => onRemove(tag)}
-      aria-label={`Remove tag ${tag}`}
+      aria-label={`${APP_TEXT.notesVault.delete} tag ${tag}`}
     >
       {tag} x
     </button>

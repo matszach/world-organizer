@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
+import { APP_TEXT } from '../content/appText'
 import './HomePage.scss'
 import useUserStateStore from '../state/user-state-store'
 
@@ -16,12 +17,12 @@ function HomePage() {
 
   return (
     <main className="home-page">
-      <h1 className="home-page__title">world-organizer</h1>
+      <h1 className="home-page__title">{APP_TEXT.app.homeTitle}</h1>
 
       {!world ? (
         <form className="home-page__form" onSubmit={handleSubmit}>
           <label className="home-page__label" htmlFor="world-name">
-            Name your world
+            {APP_TEXT.homePage.nameYourWorld}
           </label>
           <div className="home-page__form-row">
             <input
@@ -30,22 +31,22 @@ function HomePage() {
               type="text"
               value={worldName}
               onChange={event => setWorldName(event.target.value)}
-              placeholder="My world"
+              placeholder={APP_TEXT.homePage.worldPlaceholder}
             />
             <button className="home-page__submit" type="submit" disabled={!worldName.trim()}>
-              Create world
+              {APP_TEXT.homePage.createWorld}
             </button>
           </div>
         </form>
       ) : (
         <>
-          <p className="home-page__subtitle">Welcome to {world.name}</p>
+          <p className="home-page__subtitle">{APP_TEXT.homePage.welcomePrefix} {world.name}</p>
           <div className="home-page__apps">
             <Link className="home-page__app-link" to="/hex-map-maker">
-              Hex Map Maker
+              {APP_TEXT.homePage.hexMapMakerLink}
             </Link>
             <Link className="home-page__app-link" to="/notes-vault">
-              Notes Vault
+              {APP_TEXT.homePage.notesVaultLink}
             </Link>
           </div>
         </>

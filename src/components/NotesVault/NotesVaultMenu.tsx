@@ -1,4 +1,5 @@
 import type Note from '../../state/model/note'
+import { APP_TEXT } from '../../content/appText'
 import NoteListItem from './NoteListItem'
 import TagFilterButton from './TagFilterButton'
 import './NotesVaultMenu.scss'
@@ -30,18 +31,18 @@ function NotesVaultMenu({
     <aside className="notes-vault-menu">
       <div className="notes-vault-menu__section">
         <div className="notes-vault-menu__section-header">
-          <h3 className="notes-vault-menu__title">Filter by tags</h3>
+          <h3 className="notes-vault-menu__title">{APP_TEXT.notesVault.filterTitle}</h3>
           <button
             type="button"
             className="notes-vault-menu__action-btn"
             onClick={onClearTagFilters}
             disabled={activeTagFilters.length === 0}
           >
-            Clear
+            {APP_TEXT.notesVault.clear}
           </button>
         </div>
         {allTags.length === 0 ? (
-          <div className="notes-vault-menu__placeholder">No tags created yet.</div>
+          <div className="notes-vault-menu__placeholder">{APP_TEXT.notesVault.noTagsCreated}</div>
         ) : (
           <div className="notes-vault-menu__tag-list">
             {allTags.map(tag => (
@@ -58,13 +59,13 @@ function NotesVaultMenu({
 
       <div className="notes-vault-menu__section">
         <div className="notes-vault-menu__section-header">
-          <h3 className="notes-vault-menu__title">Notes</h3>
+          <h3 className="notes-vault-menu__title">{APP_TEXT.notesVault.notesTitle}</h3>
           <button type="button" className="notes-vault-menu__action-btn" onClick={onCreateNote}>
-            New
+            {APP_TEXT.notesVault.newNote}
           </button>
         </div>
         {notes.length === 0 ? (
-          <div className="notes-vault-menu__placeholder">No notes match the current filter.</div>
+          <div className="notes-vault-menu__placeholder">{APP_TEXT.notesVault.noMatches}</div>
         ) : (
           <ul className="notes-vault-menu__notes-list">
             {notes.map(note => (
