@@ -2,14 +2,6 @@
 
 .notes-vault-page {
   flex: 1;
-  @include c.page-centered-layout;
-
-  &__title {
-    margin: 0 0 0.5rem;
-    font-size: 1.75rem;
-  }
-
-  &__subtitle {
-    @include c.muted-subtitle;
-  }
+  display: flex;
+  min-height: 0;
 }

@@ -1,0 +1,134 @@
+@use '../../styles/theme' as t;
+
+.notes-vault-menu {
+  width: 280px;
+  padding: 1rem;
+  border-right: 1px solid t.$color-surface-1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: t.$color-subtext;
+  }
+
+  &__placeholder {
+    padding: 0.6rem 0.75rem;
+    border: 1px dashed t.$color-surface-1;
+    border-radius: t.$radius-md;
+    color: t.$color-subtext;
+  }
+
+  &__action-btn {
+    padding: 0.25rem 0.6rem;
+    border: 1px solid t.$color-surface-1;
+    border-radius: t.$radius-sm;
+    background: t.$color-surface-0;
+    color: t.$color-text;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+  }
+
+  &__notes-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  &__note-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.35rem;
+  }
+
+  &__note-btn {
+    border: 1px solid t.$color-surface-1;
+    border-radius: t.$radius-sm;
+    background: t.$color-surface-0;
+    color: t.$color-text;
+    text-align: left;
+    padding: 0.45rem 0.55rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+
+    &:hover {
+      background: t.$color-surface-1;
+    }
+  }
+
+  &__note-btn--selected {
+    border-color: t.$color-accent;
+  }
+
+  &__note-title {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__note-meta {
+    font-size: t.$font-size-sm;
+    color: t.$color-subtext;
+  }
+
+  &__delete-btn {
+    border: 1px solid t.$color-surface-1;
+    border-radius: t.$radius-sm;
+    background: transparent;
+    color: t.$color-danger;
+    padding: 0.4rem 0.45rem;
+    cursor: pointer;
+
+    &:hover {
+      background: t.$color-surface-0;
+    }
+  }
+
+  &__tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  &__tag-btn {
+    border: 1px solid t.$color-surface-1;
+    border-radius: 999px;
+    background: t.$color-surface-0;
+    color: t.$color-text;
+    padding: 0.2rem 0.6rem;
+    font-size: t.$font-size-sm;
+    cursor: pointer;
+  }
+
+  &__tag-btn--active {
+    border-color: t.$color-accent;
+    background: rgba(t.$color-accent, 0.2);
+  }
+}

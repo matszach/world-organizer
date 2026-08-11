@@ -5,6 +5,6 @@ export function getNewWorld(name: string): World {
     id: crypto.randomUUID(),
     name,
     notes: [],
-    noteCategories: [],
+    noteTags: [],
   }
 }

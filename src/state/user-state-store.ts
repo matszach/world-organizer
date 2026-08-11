@@ -2,12 +2,26 @@ import { create } from 'zustand'
 import UserState from './model/user-state'
 import World from './model/world'
 import Note from './model/note'
-import { getNewNote, validateNoteCategory } from './notes-util'
+import { getNewNote, mergeWorldNoteTags, normalizeNote } from './notes-util'
 import { getNewWorld } from './world-util'
 
 const createInitialUserState = (): UserState => ({
   world: null,
 })
+
+function normalizeIncomingWorld(world: World | null): World | null {
+  if (!world) {
+    return null
+  }
+
+  const normalizedNotes = world.notes.map(normalizeNote)
+
+  return {
+    ...world,
+    notes: normalizedNotes,
+    noteTags: mergeWorldNoteTags(world.noteTags ?? [], normalizedNotes.flatMap(note => note.tags)),
+  }
+}
 
 interface UserStateStore extends UserState {
   reset: () => void 
@@ -17,9 +31,6 @@ interface UserStateStore extends UserState {
   createNote: () => string | undefined
   deleteNote: (noteId: string) => void
   updateNote: (note: Note) => void
-  createNoteCategory: (category: string) => void
-  deleteNoteCategory: (category: string) => void
-  renameNoteCategory: (oldCategory: string, newCategory: string) => void
 }
 
 const useUserStateStore = create<UserStateStore>((set, get) => ({
@@ -27,7 +38,7 @@ const useUserStateStore = create<UserStateStore>((set, get) => ({
 
   reset: () => set(createInitialUserState()),
 
-  setWorld: world => set({ world }),
+  setWorld: world => set({ world: normalizeIncomingWorld(world) }),
 
   clearWorld: () => set({ world: null }),
 
@@ -67,59 +78,14 @@ const useUserStateStore = create<UserStateStore>((set, get) => ({
   updateNote: note => {
     const { world } = get()
     if (!world) return
+    const normalizedNote = normalizeNote(note)
     set({
       world: {
         ...world,
         notes: world.notes.map(
-          existingNote => existingNote.id === note.id ? note : existingNote,
+          existingNote => existingNote.id === normalizedNote.id ? normalizedNote : existingNote,
         ),
-      },
-    })
-  },
-
-  createNoteCategory: category => {
-    const { world } = get()
-    if (!world) return
-    const normalizedCategory = category.trim()
-    if (!validateNoteCategory(world, normalizedCategory)) return
-    set({
-      world: {
-        ...world,
-        noteCategories: [...world.noteCategories, normalizedCategory],
-      },
-    })
-  },
-
-  deleteNoteCategory: category => {
-    const { world } = get()
-    if (!world) return
-    set({
-      world: {
-        ...world,
-        noteCategories: world.noteCategories.filter(
-          existingCategory => existingCategory !== category
-        ),
-        notes: world.notes.map(
-          note => note.category === category ? { ...note, category: null } : note,
-        ),
-      },
-    })
-  },
-
-  renameNoteCategory: (oldCategory, newCategory) => {
-    const { world } = get()
-    if (!world) return
-    const normalizedNewCategory = newCategory.trim()
-    if (!validateNoteCategory(world, normalizedNewCategory) || normalizedNewCategory === oldCategory) return
-    set({
-      world: {
-        ...world,
-        noteCategories: world.noteCategories.map(
-          existingCategory => existingCategory === oldCategory ? normalizedNewCategory : existingCategory
-        ),
-        notes: world.notes.map(
-          note => note.category === oldCategory ? { ...note, category: normalizedNewCategory } : note
-        ),
+        noteTags: mergeWorldNoteTags(world.noteTags, normalizedNote.tags),
       },
     })
   },

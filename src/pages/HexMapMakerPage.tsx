@@ -5,7 +5,7 @@ import HexWorkspace from '../components/HexWorkspace/HexWorkspace'
 function HexMapMakerPage() {
   return (
     <div className="app">
-      <Navbar appTitle="Hex Map Maker" showHomeButton />
+      <Navbar appTitle="hex-map-maker" showHomeButton />
       <div className="app__body">
         <HexToolPanel />
         <HexWorkspace />

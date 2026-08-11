@@ -4,5 +4,5 @@ export default interface World {
   id: string
   name: string
   notes: Note[]
-  noteCategories: string[]
+  noteTags: string[]
 }
