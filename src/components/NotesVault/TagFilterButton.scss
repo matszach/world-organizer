@@ -1,0 +1,16 @@
+@use '../../styles/theme' as t;
+
+.tag-filter-button {
+  border: 1px solid t.$color-surface-1;
+  border-radius: 999px;
+  background: t.$color-surface-0;
+  color: t.$color-text;
+  padding: 0.2rem 0.6rem;
+  font-size: t.$font-size-sm;
+  cursor: pointer;
+}
+
+.tag-filter-button--active {
+  border-color: t.$color-accent;
+  background: rgba(t.$color-accent, 0.2);
+}

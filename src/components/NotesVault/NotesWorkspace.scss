@@ -77,15 +77,6 @@
     gap: 0.4rem;
   }
 
-  &__tag-chip {
-    border: 1px solid t.$color-surface-1;
-    border-radius: 999px;
-    background: t.$color-surface-0;
-    color: t.$color-text;
-    padding: 0.25rem 0.65rem;
-    cursor: pointer;
-  }
-
   &__placeholder {
     flex: 1;
     display: flex;

@@ -1,0 +1,45 @@
+@use '../../styles/theme' as t;
+
+.notes-vault-menu__note-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.35rem;
+}
+
+.notes-vault-menu__note-btn {
+  border: 1px solid t.$color-surface-1;
+  border-radius: t.$radius-sm;
+  background: t.$color-surface-0;
+  color: t.$color-text;
+  text-align: left;
+  padding: 0.45rem 0.55rem;
+  cursor: pointer;
+
+  &:hover {
+    background: t.$color-surface-1;
+  }
+}
+
+.notes-vault-menu__note-btn--selected {
+  border-color: t.$color-accent;
+}
+
+.notes-vault-menu__note-title {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notes-vault-menu__delete-btn {
+  border: 1px solid t.$color-surface-1;
+  border-radius: t.$radius-sm;
+  background: transparent;
+  color: t.$color-danger;
+  padding: 0.4rem 0.45rem;
+  cursor: pointer;
+
+  &:hover {
+    background: t.$color-surface-0;
+  }
+}

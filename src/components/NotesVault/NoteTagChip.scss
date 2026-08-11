@@ -1,0 +1,10 @@
+@use '../../styles/theme' as t;
+
+.note-tag-chip {
+  border: 1px solid t.$color-surface-1;
+  border-radius: 999px;
+  background: t.$color-surface-0;
+  color: t.$color-text;
+  padding: 0.25rem 0.65rem;
+  cursor: pointer;
+}

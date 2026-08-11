@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type Note from '../../state/model/note'
 import { normalizeNoteTag } from '../../state/notes-util'
+import NoteTagChip from './NoteTagChip'
 import './NotesWorkspace.scss'
 
 interface NotesWorkspaceProps {
@@ -106,15 +107,11 @@ function NotesWorkspace({ note, onUpdateNote }: NotesWorkspaceProps) {
           ) : (
             <div className="notes-workspace__tag-list">
               {note.tags.map(tag => (
-                <button
+                <NoteTagChip
                   key={tag}
-                  type="button"
-                  className="notes-workspace__tag-chip"
-                  onClick={() => handleRemoveTag(tag)}
-                  aria-label={`Remove tag ${tag}`}
-                >
-                  {tag} x
-                </button>
+                  tag={tag}
+                  onRemove={handleRemoveTag}
+                />
               ))}
             </div>
           )}
