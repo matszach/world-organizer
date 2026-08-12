@@ -28,6 +28,27 @@
     font-weight: 600;
   }
 
+  &__meta-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+
+  &__field-group {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__field-group--title {
+    flex: 1.5;
+  }
+
+  &__field-group--tag {
+    min-width: 0;
+  }
+
   &__input,
   &__textarea {
     width: 100%;

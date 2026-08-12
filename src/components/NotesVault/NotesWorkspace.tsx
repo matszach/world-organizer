@@ -57,48 +57,43 @@ function NotesWorkspace({ note, onUpdateNote }: NotesWorkspaceProps) {
         <div className="notes-workspace__placeholder">{APP_TEXT.notesVault.selectNote}</div>
       ) : (
         <>
-          <label className="notes-workspace__field-label" htmlFor="note-title">
-            {APP_TEXT.notesVault.titleLabel}
-          </label>
-          <input
-            id="note-title"
-            className="notes-workspace__input"
-            type="text"
-            value={note.title}
-            onChange={event => onUpdateNote({ ...note, title: event.target.value })}
-          />
+          <div className="notes-workspace__meta-row">
+            <div className="notes-workspace__field-group notes-workspace__field-group--title">
+              <label className="notes-workspace__field-label" htmlFor="note-title">
+                {APP_TEXT.notesVault.titleLabel}
+              </label>
+              <input
+                id="note-title"
+                className="notes-workspace__input"
+                type="text"
+                value={note.title}
+                onChange={event => onUpdateNote({ ...note, title: event.target.value })}
+              />
+            </div>
 
-          <label className="notes-workspace__field-label" htmlFor="note-content">
-            {APP_TEXT.notesVault.contentLabel}
-          </label>
-          <textarea
-            id="note-content"
-            className="notes-workspace__textarea"
-            value={note.content}
-            onChange={event => onUpdateNote({ ...note, content: event.target.value })}
-            placeholder={APP_TEXT.notesVault.contentPlaceholder}
-          />
-
-          <div className="notes-workspace__tags-header">
-            <span className="notes-workspace__field-label">{APP_TEXT.notesVault.tagsLabel}</span>
-          </div>
-          <div className="notes-workspace__tag-input-row">
-            <input
-              className="notes-workspace__input"
-              type="text"
-              value={tagInput}
-              onChange={event => setTagInput(event.target.value)}
-              onKeyDown={handleTagInputKeyDown}
-              placeholder={APP_TEXT.notesVault.tagPlaceholder}
-            />
-            <button
-              type="button"
-              className="notes-workspace__action-btn"
-              onClick={handleAddTag}
-              disabled={!tagInput.trim()}
-            >
-              {APP_TEXT.notesVault.addTag}
-            </button>
+            <div className="notes-workspace__field-group notes-workspace__field-group--tag">
+              <div className="notes-workspace__tags-header">
+                <span className="notes-workspace__field-label">{APP_TEXT.notesVault.tagsLabel}</span>
+              </div>
+              <div className="notes-workspace__tag-input-row">
+                <input
+                  className="notes-workspace__input"
+                  type="text"
+                  value={tagInput}
+                  onChange={event => setTagInput(event.target.value)}
+                  onKeyDown={handleTagInputKeyDown}
+                  placeholder={APP_TEXT.notesVault.tagPlaceholder}
+                />
+                <button
+                  type="button"
+                  className="notes-workspace__action-btn"
+                  onClick={handleAddTag}
+                  disabled={!tagInput.trim()}
+                >
+                  {APP_TEXT.notesVault.addTag}
+                </button>
+              </div>
+            </div>
           </div>
 
           {note.tags.length === 0 ? (
@@ -116,6 +111,17 @@ function NotesWorkspace({ note, onUpdateNote }: NotesWorkspaceProps) {
               ))}
             </div>
           )}
+
+          <label className="notes-workspace__field-label" htmlFor="note-content">
+            {APP_TEXT.notesVault.contentLabel}
+          </label>
+          <textarea
+            id="note-content"
+            className="notes-workspace__textarea"
+            value={note.content}
+            onChange={event => onUpdateNote({ ...note, content: event.target.value })}
+            placeholder={APP_TEXT.notesVault.contentPlaceholder}
+          />
         </>
       )}
     </section>

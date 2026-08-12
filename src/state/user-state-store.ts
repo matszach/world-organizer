@@ -65,12 +65,15 @@ const useUserStateStore = create<UserStateStore>((set, get) => ({
   deleteNote: noteId => {
     const { world } = get()
     if (!world) return
+
+    const remainingNotes = world.notes.filter(note => note.id !== noteId)
+    const remainingTags = mergeWorldNoteTags([], remainingNotes.flatMap(note => note.tags))
+
     set({
       world: {
         ...world,
-        notes: world.notes.filter(
-          note => note.id !== noteId
-        ),
+        notes: remainingNotes,
+        noteTags: remainingTags,
       },
     })
   },
